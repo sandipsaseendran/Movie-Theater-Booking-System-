@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>My Profile - Nilambur Films</title>
+    <link rel="stylesheet" href="profile.css?v=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-logo">
+            <div class="logo-pyramid">
+                <div class="pyramid-shape">
+                    <div class="pyramid-face front"></div>
+                    <div class="pyramid-face back"></div>
+                    <div class="pyramid-face left"></div>
+                    <div class="pyramid-face right"></div>
+                </div>
+            </div>
+            <span class="logo-text">Nilambur Films</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about/about.html">About</a></li>
+            <li><a href="../movies/movies.html">Movies</a></li>
+            <li><a href="../experience/experience.html">Experiences</a></li>
+            <li><a href="../contact/contact.html">Contact</a></li>
+            <li><a href="../ticket/ticket.html">Tickets</a></li>
+        </ul>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about/about.html">About</a></li>
+                <li><a href="../movies/movies.html">Movies</a></li>
+                <li><a href="../experience/experience.html">Experiences</a></li>
+                <li><a href="../contact/contact.html">Contact</a></li>
+                <li><a href="../ticket/ticket.html">Tickets</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-right">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="../index.html" class="glass-btn back-btn">← Back</a>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-header">
+                <h1>My Profile</h1>
+                <p>Manage your account information</p>
+            </div>
+
+            <div class="profile-content">
+                <!-- Profile Card -->
+                <div class="profile-card liquid-card">
+                    <div class="profile-avatar-section">
+                        <div class="profile-avatar" id="profileAvatar">
+                            <span id="profileInitials">U</span>
+                        </div>
+                        <button class="edit-avatar-btn">Change Photo</button>
+                    </div>
+                    
+                    <div class="profile-info">
+                        <div class="info-group">
+                            <label>Full Name</label>
+                            <input type="text" id="profileName" readonly>
+                        </div>
+                        
+                        <div class="info-group">
+                            <label>Email Address</label>
+                            <input type="email" id="profileEmail" readonly>
+                        </div>
+                        
+                        <div class="info-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="profilePhone" readonly>
+                        </div>
+                        
+                        <div class="info-group">
+                            <label>Account Status</label>
+                            <div class="status-badge verified" id="accountStatus">
+                                <span>✓ Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" id="editProfileBtn">Edit Profile</button>
+                        <button class="btn btn-secondary" id="changePasswordBtn">Change Password</button>
+                    </div>
+                </div>
+
+                <!-- Stats Card -->
+                <div class="stats-card liquid-card">
+                    <h2>Account Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalBookings">0</div>
+                            <div class="stat-label">Total Bookings</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalSpent">₹0</div>
+                            <div class="stat-label">Total Spent</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="memberSince">-</div>
+                            <div class="stat-label">Member Since</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../shared/mobile-menu.js?v=1.0"></script>
+    <script src="profile.js?v=1.0"></script>
+</body>
+</html>
+
+

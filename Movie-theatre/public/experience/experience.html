@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiences - Nilambur Films</title>
+    <link rel="stylesheet" href="experience.css">
+</head>
+<body>
+    <!-- Navigation - EXACTLY MATCHING INDEX -->
+    <nav class="glass-nav">
+        <div class="nav-logo">
+            <div class="logo-pyramid">
+                <div class="pyramid-shape">
+                    <div class="pyramid-face front"></div>
+                    <div class="pyramid-face back"></div>
+                    <div class="pyramid-face left"></div>
+                    <div class="pyramid-face right"></div>
+                </div>
+            </div>
+            <span class="logo-text">Nilambur Films</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about/about.html">About</a></li>
+            <li><a href="../movies/movies.html">Movies</a></li>
+            <li><a href="experience.html" class="active">Experiences</a></li>
+            <li><a href="../contact/contact.html">Contact</a></li>
+            <li><a href="../ticket/ticket.html">Tickets</a></li>
+        </ul>
+        
+        <div class="nav-right">
+            <button class="search-btn glass-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="experiences">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">PREMIUM<br>EXPERIENCES</h1>
+            <p class="hero-subtitle">ഓരോ കാഴ്ചയും ഒരു അനുഭവം - Choose your perfect cinema moment</p>
+        </div>
+    </section>
+
+    <!-- Main Experiences Grid -->
+    <section class="experiences-section">
+        <div class="container">
+            
+            <!-- IMAX Experience -->
+            <div class="experience-card liquid-card" data-experience="imax">
+                <div class="experience-visual">
+                    <div class="experience-badge">PREMIUM</div>
+                    <div class="visual-gradient imax-gradient"></div>
+                </div>
+                <div class="experience-content">
+                    <h2>IMAX EXPERIENCE</h2>
+                    <p class="experience-tagline">The World's Most Immersive Movie Experience</p>
+                    <p class="experience-description">
+                        സിനിമയുടെ യഥാർത്ഥ വലുപ്പത്തിൽ കാണുക. IMAX delivers crystal-clear images, 
+                        coupled with powerful digital surround sound that puts you inside the action. 
+                        40% larger screen, 26% more image — feel the difference.
+                    </p>
+                    
+                    <div class="experience-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">📐</div>
+                            <div>
+                                <h4>Expanded Aspect Ratio</h4>
+                                <p>Up to 26% more picture than standard</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💎</div>
+                            <div>
+                                <h4>Crystal Clarity</h4>
+                                <p>Laser projection with 4K resolution</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔊</div>
+                            <div>
+                                <h4>12-Channel Sound</h4>
+                                <p>Precision tuned audio system</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-pricing">
+                        <span class="price">₹450</span>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4DX Experience -->
+            <div class="experience-card liquid-card" data-experience="4dx">
+                <div class="experience-visual">
+                    <div class="experience-badge">IMMERSIVE</div>
+                    <div class="visual-gradient dx-gradient"></div>
+                </div>
+                <div class="experience-content">
+                    <h2>4DX EXPERIENCE</h2>
+                    <p class="experience-tagline">Feel Every Scene Come Alive</p>
+                    <p class="experience-description">
+                        സിനിമ കാണുക മാത്രമല്ല, അനുഭവിക്കുക. Motion seats, wind, rain, fog, lightning — 
+                        4DX brings movies to life with environmental effects synchronized to the action. 
+                        This is cinema you can feel.
+                    </p>
+                    
+                    <div class="experience-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🪑</div>
+                            <div>
+                                <h4>Motion Seats</h4>
+                                <p>Move with the action on screen</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🌊</div>
+                            <div>
+                                <h4>Environmental Effects</h4>
+                                <p>Wind, water, fog, scents & more</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <div>
+                                <h4>Synchronized Action</h4>
+                                <p>Every effect timed perfectly</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-pricing">
+                        <span class="price">₹550</span>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dolby Atmos -->
+            <div class="experience-card liquid-card" data-experience="dolby">
+                <div class="experience-visual">
+                    <div class="experience-badge">AUDIO</div>
+                    <div class="visual-gradient dolby-gradient"></div>
+                </div>
+                <div class="experience-content">
+                    <h2>DOLBY ATMOS</h2>
+                    <p class="experience-tagline">Sound That Moves Around You</p>
+                    <p class="experience-description">
+                        ശബ്ദം എല്ലാ ദിശകളിൽ നിന്നും. Dolby Atmos creates an overhead dimension 
+                        in sound, surrounding you from all directions including above. Hear every whisper, 
+                        explosion, and musical note with pristine clarity.
+                    </p>
+                    
+                    <div class="experience-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🎵</div>
+                            <div>
+                                <h4>Object-Based Audio</h4>
+                                <p>128 simultaneous audio objects</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📡</div>
+                            <div>
+                                <h4>Overhead Speakers</h4>
+                                <p>Sound from above for full immersion</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🎧</div>
+                            <div>
+                                <h4>Studio Quality</h4>
+                                <p>Hear exactly as filmmakers intended</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-pricing">
+                        <span class="price">₹350</span>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIP Suite -->
+            <div class="experience-card liquid-card" data-experience="vip">
+                <div class="experience-visual">
+                    <div class="experience-badge">LUXURY</div>
+                    <div class="visual-gradient vip-gradient"></div>
+                </div>
+                <div class="experience-content">
+                    <h2>VIP SUITE</h2>
+                    <p class="experience-tagline">The Ultimate Cinema Luxury</p>
+                    <p class="experience-description">
+                        സമ്പൂർണ്ണ സുഖസൗകര്യങ്ങൾ. Private lounge, personal butler service, 
+                        gourmet dining, and the finest reclining seats. Watch movies in absolute luxury 
+                        with dedicated concierge service and premium amenities.
+                    </p>
+                    
+                    <div class="experience-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">👔</div>
+                            <div>
+                                <h4>Butler Service</h4>
+                                <p>Personal attendant throughout</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🍽️</div>
+                            <div>
+                                <h4>Gourmet Dining</h4>
+                                <p>Chef-prepared meals & premium bar</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🛋️</div>
+                            <div>
+                                <h4>Private Lounge</h4>
+                                <p>Exclusive pre-show relaxation area</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-pricing">
+                        <span class="price">₹950</span>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Standard -->
+            <div class="experience-card liquid-card" data-experience="premium">
+                <div class="experience-visual">
+                    <div class="experience-badge">CLASSIC</div>
+                    <div class="visual-gradient premium-gradient"></div>
+                </div>
+                <div class="experience-content">
+                    <h2>PREMIUM STANDARD</h2>
+                    <p class="experience-tagline">Comfort Meets Quality</p>
+                    <p class="experience-description">
+                        മികച്ച അടിസ്ഥാന അനുഭവം. Our standard experience still offers 
+                        comfortable seating, digital projection, and quality sound. Perfect for 
+                        a great movie night without the extras.
+                    </p>
+                    
+                    <div class="experience-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🎥</div>
+                            <div>
+                                <h4>4K Projection</h4>
+                                <p>Sharp, vibrant picture quality</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🔉</div>
+                            <div>
+                                <h4>Digital Surround</h4>
+                                <p>7.1 channel audio system</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💺</div>
+                            <div>
+                                <h4>Comfortable Seating</h4>
+                                <p>Plush, spacious seats</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-pricing">
+                        <span class="price">₹250</span>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Compare Experiences</h2>
+            <p class="section-subtitle">Find the perfect viewing experience for your needs</p>
+            
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table liquid-card">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Premium</th>
+                            <th>Dolby</th>
+                            <th>IMAX</th>
+                            <th>4DX</th>
+                            <th>VIP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Screen Size</td>
+                            <td>Standard</td>
+                            <td>Large</td>
+                            <td>XL (40% bigger)</td>
+                            <td>Large</td>
+                            <td>Large</td>
+                        </tr>
+                        <tr>
+                            <td>Audio System</td>
+                            <td>7.1 Surround</td>
+                            <td>Atmos 3D</td>
+                            <td>12-Channel</td>
+                            <td>Surround</td>
+                            <td>Atmos 3D</td>
+                        </tr>
+                        <tr>
+                            <td>Seating</td>
+                            <td>Comfortable</td>
+                            <td>Premium</td>
+                            <td>Premium</td>
+                            <td>Motion</td>
+                            <td>Luxury Pods</td>
+                        </tr>
+                        <tr>
+                            <td>Special Effects</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>✓ Full 4D</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Food Service</td>
+                            <td>Concessions</td>
+                            <td>Concessions</td>
+                            <td>Premium Menu</td>
+                            <td>Premium Menu</td>
+                            <td>Gourmet</td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td>₹250</td>
+                            <td>₹350</td>
+                            <td>₹450</td>
+                            <td>₹550</td>
+                            <td>₹950</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - EXACTLY MATCHING INDEX -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-pyramid small">
+                            <div class="pyramid-shape">
+                                <div class="pyramid-face front"></div>
+                                <div class="pyramid-face back"></div>
+                                <div class="pyramid-face left"></div>
+                                <div class="pyramid-face right"></div>
+                            </div>
+                        </div>
+                        <span>Nilambur Films</span>
+                    </div>
+                    <p>Experience cinema reimagined with cutting-edge technology and unmatched luxury.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#movies">Now Showing</a></li>
+                        <li><a href="#tickets">Book Tickets</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Experiences</h4>
+                    <ul>
+                        <li><a href="#imax">IMAX</a></li>
+                        <li><a href="#4dx">4DX</a></li>
+                        <li><a href="#dolby">Dolby Atmos</a></li>
+                        <li><a href="#vip">VIP Suites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#instagram">Instagram</a></li>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#facebook">Facebook</a></li>
+                        <li><a href="#youtube">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nilambur Films. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="experience.js"></script>
+</body>
+</html>

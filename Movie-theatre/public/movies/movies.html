@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#8a50ff">
+    <title>Movies - Nilambur Films</title>
+    <link rel="stylesheet" href="movies.css">
+</head>
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Transparent Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-logo">
+            <div class="logo-pyramid">
+                <div class="pyramid-shape">
+                    <div class="pyramid-face front"></div>
+                    <div class="pyramid-face back"></div>
+                    <div class="pyramid-face left"></div>
+                    <div class="pyramid-face right"></div>
+                </div>
+            </div>
+            <span class="logo-text">Nilambur Films</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about/about.html">About</a></li>
+            <li><a href="movies.html" class="active">Movies</a></li>
+            <li><a href="../experience/experience.html">Experiences</a></li>
+            <li><a href="../contact/contact.html">Contact</a></li>
+            <li><a href="../ticket/ticket.html">Tickets</a></li>
+        </ul>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about/about.html">About</a></li>
+                <li><a href="movies.html" class="active">Movies</a></li>
+                <li><a href="../experience/experience.html">Experiences</a></li>
+                <li><a href="../contact/contact.html">Contact</a></li>
+                <li><a href="../ticket/ticket.html">Tickets</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-right">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button class="search-btn glass-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Movies Hero Section -->
+    <section class="movies-hero">
+        <div class="container">
+            <div class="hero-glass-header">
+                <h1 class="page-title">NOW SHOWING</h1>
+                <p class="page-subtitle">Discover the latest blockbusters and cinematic masterpieces</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-glass-bar">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">All Movies</button>
+                    <button class="filter-btn" data-filter="action">Action</button>
+                    <button class="filter-btn" data-filter="drama">Drama</button>
+                    <button class="filter-btn" data-filter="scifi">Sci-Fi</button>
+                    <button class="filter-btn" data-filter="thriller">Thriller</button>
+                    <button class="filter-btn" data-filter="romance">Romance</button>
+                </div>
+                <div class="sort-group">
+                    <select class="sort-select glass-select">
+                        <option value="latest">Latest First</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="rating">Top Rated</option>
+                        <option value="title">A-Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Grid Section -->
+    <section class="movies-grid-section">
+        <div class="container">
+            <div id="moviesGrid" class="movies-grid">
+                <!-- Movies will be dynamically inserted here -->
+                <!-- Example structure for reference: -->
+                <!--
+                <div class="movie-card-full liquid-card" data-genre="action">
+                    <div class="movie-poster-full">
+                        <span class="movie-badge">IMAX</span>
+                        <div class="movie-overlay">
+                            <button class="play-btn">▶</button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3 class="movie-title">Movie Title</h3>
+                        <p class="movie-genre">Action • Thriller</p>
+                        <div class="movie-meta">
+                            <span class="movie-rating">⭐ 4.5</span>
+                            <span class="movie-duration">2h 30m</span>
+                        </div>
+                        <p class="movie-description">Brief movie description here...</p>
+                        <div class="movie-actions">
+                            <button class="btn-primary">Book Tickets</button>
+                            <button class="btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>Loading movies...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <div class="empty-icon">🎬</div>
+                <h3>No Movies Found</h3>
+                <p>Try adjusting your filters or check back soon for new releases</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-pyramid small">
+                            <div class="pyramid-shape">
+                                <div class="pyramid-face front"></div>
+                                <div class="pyramid-face back"></div>
+                                <div class="pyramid-face left"></div>
+                                <div class="pyramid-face right"></div>
+                            </div>
+                        </div>
+                        <span>Nilambur Films</span>
+                    </div>
+                    <p>Experience cinema reimagined with cutting-edge technology and unmatched luxury.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="movies.html">Now Showing</a></li>
+                        <li><a href="#tickets">Book Tickets</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Experiences</h4>
+                    <ul>
+                        <li><a href="#imax">IMAX</a></li>
+                        <li><a href="#4dx">4DX</a></li>
+                        <li><a href="#dolby">Dolby Atmos</a></li>
+                        <li><a href="#vip">VIP Suites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#instagram">Instagram</a></li>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#facebook">Facebook</a></li>
+                        <li><a href="#youtube">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nilambur Films. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="movies.js?v=4"></script>
+    <script src="../shared/mobile-menu.js"></script>
+</body>
+</html>

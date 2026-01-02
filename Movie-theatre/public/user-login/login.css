@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255,255,255,0.1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.main-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    backdrop-filter: blur(10px);
+}
+
+.card.hidden {
+    display: none;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.card-header h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.card-header p {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+}
+
+.email-highlight {
+    display: block;
+    color: #00ff88;
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #8a50ff;
+    background: rgba(138,80,255,0.1);
+}
+
+.input-group input::placeholder {
+    color: rgba(255,255,255,0.3);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.checkbox-group input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    cursor: pointer;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #8a50ff, #6a30dd);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(138,80,255,0.4);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.card-footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-footer p {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+}
+
+.card-footer a {
+    color: #8a50ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.card-footer a:hover {
+    text-decoration: underline;
+}
+
+/* OTP Inputs */
+.otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.otp-box {
+    width: 50px;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.otp-box:focus {
+    outline: none;
+    border-color: #00ff88;
+    background: rgba(0,255,136,0.1);
+}
+
+.timer-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.timer-section p {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+}
+
+.timer-section span {
+    color: #ffaa00;
+    font-weight: 700;
+}
+
+.resend-btn {
+    background: none;
+    border: none;
+    color: #00ff88;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+.resend-btn:hover {
+    text-decoration: underline;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: 500;
+    display: none;
+    z-index: 9999;
+    animation: slideIn 0.3s ease;
+}
+
+.notification.success {
+    background: rgba(0,255,136,0.2);
+    border: 1px solid #00ff88;
+    color: #00ff88;
+}
+
+.notification.error {
+    background: rgba(255,68,68,0.2);
+    border: 1px solid #ff4444;
+    color: #ff4444;
+}
+
+.notification.loading {
+    background: rgba(138,80,255,0.2);
+    border: 1px solid #8a50ff;
+    color: #fff;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .card {
+        padding: 30px 20px;
+    }
+    
+    .otp-box {
+        width: 42px;
+        height: 52px;
+        font-size: 20px;
+    }
+    
+    .otp-inputs {
+        gap: 6px;
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tickets - Nilambur Films</title>
+    <link rel="stylesheet" href="ticket.css?v=4">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-logo">
+            <div class="logo-pyramid">
+                <div class="pyramid-shape">
+                    <div class="pyramid-face front"></div>
+                    <div class="pyramid-face back"></div>
+                    <div class="pyramid-face left"></div>
+                    <div class="pyramid-face right"></div>
+                </div>
+            </div>
+            <span class="logo-text">Nilambur Films</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about/about.html">About</a></li>
+            <li><a href="../movies/movies.html">Movies</a></li>
+            <li><a href="../experience/experience.html">Experiences</a></li>
+            <li><a href="../contact/contact.html">Contact</a></li>
+            <li><a href="ticket.html" class="active">Tickets</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1><span>MY TICKETS</span></h1>
+        <p>Your cinema journey awaits — view and manage all your bookings in one place</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filter Tabs -->
+        <div class="filter-container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Tickets</button>
+                <button class="filter-tab" data-filter="upcoming">Upcoming</button>
+                <button class="filter-tab" data-filter="past">Past Shows</button>
+            </div>
+        </div>
+
+        <!-- Login Required -->
+        <div class="state-container" id="loginRequired" style="display: none;">
+            <div class="state-card liquid-glass">
+                <div class="state-icon">🔐</div>
+                <h2>Login Required</h2>
+                <p>Please login to view your tickets and booking history</p>
+                <a href="../user-login/login.html" class="btn-primary">Login Now</a>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="state-container" id="loadingState">
+            <div class="loading-spinner"></div>
+            <p style="color: rgba(255,255,255,0.5);">Loading your tickets...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div class="state-container" id="emptyState" style="display: none;">
+            <div class="state-card liquid-glass">
+                <div class="state-icon">🎬</div>
+                <h2>No Tickets Yet</h2>
+                <p>You haven't booked any tickets yet. Start your cinema journey!</p>
+                <a href="../movies/movies.html" class="btn-primary">Browse Movies</a>
+            </div>
+        </div>
+
+        <!-- Tickets Grid -->
+        <div class="tickets-grid" id="ticketsGrid" style="display: none;">
+            <!-- Tickets will be loaded here -->
+        </div>
+    </main>
+
+    <!-- Ticket Detail Modal -->
+    <div class="modal" id="ticketModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modalBody">
+                <!-- Ticket details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="ticket.js?v=4"></script>
+</body>
+</html>

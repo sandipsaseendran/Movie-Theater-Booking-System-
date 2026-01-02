@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>My Bookings - Nilambur Films</title>
+    <link rel="stylesheet" href="bookings.css?v=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-logo">
+            <div class="logo-pyramid">
+                <div class="pyramid-shape">
+                    <div class="pyramid-face front"></div>
+                    <div class="pyramid-face back"></div>
+                    <div class="pyramid-face left"></div>
+                    <div class="pyramid-face right"></div>
+                </div>
+            </div>
+            <span class="logo-text">Nilambur Films</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about/about.html">About</a></li>
+            <li><a href="../movies/movies.html">Movies</a></li>
+            <li><a href="../experience/experience.html">Experiences</a></li>
+            <li><a href="../contact/contact.html">Contact</a></li>
+            <li><a href="../ticket/ticket.html">Tickets</a></li>
+        </ul>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about/about.html">About</a></li>
+                <li><a href="../movies/movies.html">Movies</a></li>
+                <li><a href="../experience/experience.html">Experiences</a></li>
+                <li><a href="../contact/contact.html">Contact</a></li>
+                <li><a href="../ticket/ticket.html">Tickets</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-right">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="../index.html" class="glass-btn back-btn">← Back</a>
+        </div>
+    </nav>
+
+    <!-- Bookings Section -->
+    <section class="bookings-section">
+        <div class="container">
+            <div class="bookings-header">
+                <h1>My Bookings</h1>
+                <p>View and manage all your movie bookings</p>
+            </div>
+
+            <div id="loadingState" class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading your bookings...</p>
+            </div>
+
+            <div id="emptyState" class="empty-state" style="display: none;">
+                <div class="empty-icon">🎬</div>
+                <h2>No Bookings Yet</h2>
+                <p>You haven't made any bookings yet. Start booking your favorite movies!</p>
+                <a href="../movies/movies.html" class="btn btn-primary">Browse Movies</a>
+            </div>
+
+            <div id="bookingsGrid" class="bookings-grid"></div>
+        </div>
+    </section>
+
+    <script src="../shared/mobile-menu.js?v=1.0"></script>
+    <script src="bookings.js?v=1.0"></script>
+</body>
+</html>
+
+

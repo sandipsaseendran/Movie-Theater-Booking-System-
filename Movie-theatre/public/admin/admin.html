@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Nilambur Films</title>
+    <link rel="stylesheet" href="admin.css?v=2">
+</head>
+<body>
+    <!-- Admin Navigation -->
+    <nav class="admin-nav glass-nav">
+        <div class="nav-logo">
+            <div class="logo-pyramid">
+                <div class="pyramid-shape">
+                    <div class="pyramid-face front"></div>
+                    <div class="pyramid-face back"></div>
+                    <div class="pyramid-face left"></div>
+                    <div class="pyramid-face right"></div>
+                </div>
+            </div>
+            <span class="logo-text">Nilambur Films Admin</span>
+        </div>
+        
+        <div class="nav-right">
+            <button class="notification-btn glass-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <span class="notification-badge">5</span>
+            </button>
+            <div class="admin-profile">
+                <span class="admin-name">Admin</span>
+                <div class="admin-avatar">A</div>
+            </div>
+            <button class="logout-btn glass-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar liquid-card">
+            <div class="sidebar-menu">
+                <a href="#dashboard" class="menu-item active" data-section="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                
+                <a href="#movies" class="menu-item" data-section="movies">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                        <line x1="7" y1="2" x2="7" y2="22"></line>
+                        <line x1="17" y1="2" x2="17" y2="22"></line>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                    </svg>
+                    <span>Movies</span>
+                </a>
+
+                <a href="#showtimes" class="menu-item" data-section="showtimes">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>Showtimes</span>
+                </a>
+                
+                <a href="#users" class="menu-item" data-section="users">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Users</span>
+                </a>
+                
+                <a href="#bookings" class="menu-item" data-section="bookings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                        <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                    <span>Bookings</span>
+                </a>
+                
+                <a href="#payments" class="menu-item" data-section="payments">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    <span>Payments</span>
+                </a>
+
+                <a href="#screens" class="menu-item" data-section="screens">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <span>Screens</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard-section" class="content-section active">
+                <div class="section-header">
+                    <h1 class="section-title">Dashboard Overview</h1>
+                    <button class="glass-btn">Export Report</button>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card liquid-card">
+                        <div class="stat-icon" style="background: rgba(138, 80, 255, 0.2);">🎬</div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Movies</p>
+                            <h3 class="stat-value" id="totalMovies">0</h3>
+                        </div>
+                    </div>
+
+                    <div class="stat-card liquid-card">
+                        <div class="stat-icon" style="background: rgba(79, 172, 254, 0.2);">👥</div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Users</p>
+                            <h3 class="stat-value" id="totalUsers">0</h3>
+                        </div>
+                    </div>
+
+                    <div class="stat-card liquid-card">
+                        <div class="stat-icon" style="background: rgba(240, 147, 251, 0.2);">🎫</div>
+                        <div class="stat-info">
+                            <p class="stat-label">Tickets Sold</p>
+                            <h3 class="stat-value" id="totalTickets">0</h3>
+                        </div>
+                    </div>
+
+                    <div class="stat-card liquid-card">
+                        <div class="stat-icon" style="background: rgba(250, 112, 154, 0.2);">💰</div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Revenue</p>
+                            <h3 class="stat-value" id="totalRevenue">₹0</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Bookings -->
+                <div class="activity-card liquid-card">
+                    <h3>Recent Bookings</h3>
+                    <div id="recentBookings" class="activity-list">
+                        <p class="empty-text">No recent bookings</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Movies Section -->
+            <section id="movies-section" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title">Movies Management</h1>
+                    <button class="glass-btn btn-primary" id="addMovieBtn">+ Add New Movie</button>
+                </div>
+
+                <div class="table-card liquid-card">
+                    <div class="table-wrapper">
+                        <table id="moviesTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Poster</th>
+                                    <th>Title</th>
+                                    <th>Genre</th>
+                                    <th>Duration</th>
+                                    <th>Rating</th>
+                                    <th>Showtimes</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Movies data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Showtimes Section -->
+            <section id="showtimes-section" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title">Showtimes Management</h1>
+                    <button class="glass-btn btn-primary" id="addShowtimeBtn">+ Add Showtime</button>
+                </div>
+
+                <div class="table-card liquid-card">
+                    <div class="table-wrapper">
+                        <table id="showtimesTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Movie</th>
+                                    <th>Screen</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Standard ₹</th>
+                                    <th>Premium ₹</th>
+                                    <th>Seats Left</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Showtimes data will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users-section" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title">Users Management</h1>
+                </div>
+
+                <div class="table-card liquid-card">
+                    <div class="table-wrapper">
+                        <table id="usersTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Joined</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bookings Section -->
+            <section id="bookings-section" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title">Bookings Management</h1>
+                    <button class="glass-btn">Export CSV</button>
+                </div>
+
+                <div class="table-card liquid-card">
+                    <div class="table-wrapper">
+                        <table id="bookingsTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Movie</th>
+                                    <th>User</th>
+                                    <th>Screen</th>
+                                    <th>Seats</th>
+                                    <th>Amount</th>
+                                    <th>Payment Status</th>
+                                    <th>Booking Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payments Section -->
+            <section id="payments-section" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title">Payments</h1>
+                </div>
+
+                <div class="table-card liquid-card">
+                    <div class="table-wrapper">
+                        <table id="paymentsTable" class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>User</th>
+                                    <th>Amount</th>
+                                    <th>Method</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screens Section -->
+            <section id="screens-section" class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title">Screens Management</h1>
+                </div>
+
+                <div class="screens-grid" id="screensGrid">
+                    <!-- Screen cards will be dynamically added -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Movie Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content liquid-card modal-large">
+            <div class="modal-header">
+                <h2>Add New Movie</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="movieForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Movie Title *</label>
+                            <input type="text" name="title" class="glass-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration *</label>
+                            <input type="text" name="duration" class="glass-input" placeholder="2h 30m" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Genre *</label>
+                            <select name="genre" class="glass-select" required>
+                                <option value="">Select Genre</option>
+                                <option value="Action">Action</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Sci-Fi">Sci-Fi</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Comedy">Comedy</option>
+                                <option value="Horror">Horror</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Rating</label>
+                            <input type="number" name="rating" class="glass-input" min="0" max="5" step="0.1" placeholder="4.5">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" class="glass-input" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Poster Image</label>
+                        <div class="file-upload-area" id="uploadArea">
+                            <input type="file" id="posterUpload" name="poster" accept="image/*" style="display: none;">
+                            <div class="upload-placeholder" id="uploadPlaceholder">
+                                <span class="upload-icon">📷</span>
+                                <span class="upload-text">Click or drag to upload poster</span>
+                                <span class="upload-hint">JPG, PNG, GIF (Max 10MB)</span>
+                            </div>
+                            <div id="posterPreview" class="image-preview" style="display: none;">
+                                <img id="previewImg" src="" alt="Preview">
+                                <button type="button" class="remove-image-btn" id="removeImage">✕ Remove</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="glass-btn" id="cancelMovieBtn">Cancel</button>
+                        <button type="submit" class="glass-btn btn-primary">Save Movie</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Showtime Modal -->
+    <div id="showtimeModal" class="modal">
+        <div class="modal-content liquid-card">
+            <div class="modal-header">
+                <h2>Add Showtime</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="showtimeForm">
+                    <div class="form-group">
+                        <label>Select Movie *</label>
+                        <select name="movie_id" id="showtimeMovieSelect" class="glass-select" required>
+                            <option value="">-- Select Movie --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Screen *</label>
+                        <select name="screen_id" id="showtimeScreenSelect" class="glass-select" required>
+                            <option value="">-- Select Screen --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Show Date *</label>
+                            <input type="date" name="show_date" class="glass-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Show Time *</label>
+                            <input type="time" name="show_time" class="glass-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Standard Price (₹) *</label>
+                            <input type="number" name="price_standard" class="glass-input" value="200" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Premium Price (₹) *</label>
+                            <input type="number" name="price_premium" class="glass-input" value="300" required>
+                        </div>
+                    </div>
+
+                    <div class="quick-times">
+                        <p>Quick Add Times:</p>
+                        <div class="quick-time-btns">
+                            <button type="button" class="quick-time-btn" data-time="10:00">10:00 AM</button>
+                            <button type="button" class="quick-time-btn" data-time="13:30">1:30 PM</button>
+                            <button type="button" class="quick-time-btn" data-time="16:30">4:30 PM</button>
+                            <button type="button" class="quick-time-btn" data-time="19:30">7:30 PM</button>
+                            <button type="button" class="quick-time-btn" data-time="22:30">10:30 PM</button>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="glass-btn" id="cancelShowtimeBtn">Cancel</button>
+                        <button type="submit" class="glass-btn btn-primary">Add Showtime</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js?v=9"></script>
+</body>
+</html>

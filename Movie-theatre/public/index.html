@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#8a50ff">
+    <title>Nilambur Films - Experience Cinema Reimagined</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Success Notification (shown after login/registration) -->
+    <div class="success-notification" id="successNotification">
+        <div class="notification-content">
+            <span class="notification-icon">✓</span>
+            <span class="notification-message" id="notificationMessage">Welcome to Nilambur Films!</span>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Transparent Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-logo">
+            <div class="logo-pyramid">
+                <div class="pyramid-shape">
+                    <div class="pyramid-face front"></div>
+                    <div class="pyramid-face back"></div>
+                    <div class="pyramid-face left"></div>
+                    <div class="pyramid-face right"></div>
+                </div>
+            </div>
+            <span class="logo-text">Nilambur Films</span>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="about/about.html">About</a></li>
+            <li><a href="movies/movies.html">Movies</a></li>
+            <li><a href="#experiences">Experiences</a></li>
+            <li><a href="contact/contact.html">Contact</a></li>
+            <li><a href="ticket/ticket.html">Tickets</a></li>
+        </ul>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="about/about.html">About</a></li>
+                <li><a href="movies/movies.html">Movies</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="contact/contact.html">Contact</a></li>
+                <li><a href="ticket/ticket.html">Tickets</a></li>
+                <li class="mobile-menu-divider"></li>
+                <li><a href="user-login/login.html" class="mobile-login-link">Login / Register</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-right">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button class="search-btn glass-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+            
+            <!-- Login Button (shown when not logged in) -->
+            <a href="user-login/login.html" class="login-btn glass-btn" id="loginBtn">Login</a>
+            
+            <!-- User Profile Dropdown (shown when logged in) -->
+            <div class="user-profile-container" id="userProfileContainer" style="display: none;">
+                <button class="user-profile-btn" id="userProfileBtn">
+                    <div class="user-avatar" id="userAvatar">
+                        <span id="userInitials">U</span>
+                    </div>
+                    <span class="user-name" id="userName">User</span>
+                    <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                
+                <!-- Dropdown Menu -->
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="dropdown-header">
+                        <div class="dropdown-avatar" id="dropdownAvatar">
+                            <span id="dropdownInitials">U</span>
+                        </div>
+                        <div class="dropdown-user-info">
+                            <span class="dropdown-user-name" id="dropdownUserName">User Name</span>
+                            <span class="dropdown-user-email" id="dropdownUserEmail">user@email.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <a href="profile/profile.html" class="dropdown-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>My Profile</span>
+                    </a>
+                    
+                    <a href="payments/payments.html" class="dropdown-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                        <span>Payments</span>
+                    </a>
+                    
+                    <a href="bookings/bookings.html" class="dropdown-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        <span>My Bookings</span>
+                    </a>
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <button class="dropdown-item logout-item" id="logoutBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - NOT TOUCHED -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-glass-card">
+                <h1 class="hero-title">CINEMA<br>WORLD</h1>
+               <p class="hero-description">
+    Cinema is not just entertainment — ഇത് our world of emotions, visuals, 
+    and unforgettable moments. Nilambur Films gives you a theatre experience 
+    designed for pure comfort and style.</p>
+            </div>
+            <div class="hero-stats-glass">
+                <div class="stat-glass-item">
+                    <h3>150K+</h3>
+                    <p>Happy Guests</p>
+                </div>
+                <div class="stat-glass-item">
+                    <h3>12</h3>
+                    <p>Premium Screens</p>
+                </div>
+                <div class="stat-glass-item">
+                    <h3>4.9★</h3>
+                    <p>Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Features Section - GLASSMORPHISM -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Premium Cinema Experience</h2>
+            <div class="features-grid">
+                <div class="feature-card liquid-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Laser Projection</h3>
+                    <p>Ultra-bright 4K laser projection for unparalleled clarity</p>
+                </div>
+                <div class="feature-card liquid-card">
+                    <div class="feature-icon">🎧</div>
+                    <h3>Immersive Audio</h3>
+                    <p>Dolby Atmos surround sound system</p>
+                </div>
+                <div class="feature-card liquid-card">
+                    <div class="feature-icon">🪑</div>
+                    <h3>Luxury Seating</h3>
+                    <p>Reclining leather seats with personal space</p>
+                </div>
+                <div class="feature-card liquid-card">
+                    <div class="feature-icon">🍿</div>
+                    <h3>Gourmet Dining</h3>
+                    <p>Chef-curated menu delivered to your seat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Now Showing Section - GLASSMORPHISM -->
+    <section class="now-showing" id="movies">
+        <div class="container">
+            <h2 class="section-title">Now Showing</h2>
+            <div class="movies-slider">
+                <div class="movie-card liquid-card">
+                    <div class="movie-poster" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);">
+                        <span class="movie-badge">IMAX</span>
+                    </div>
+                    <h3>Cosmic Odyssey</h3>
+                    <p class="movie-genre">Sci-Fi • Action</p>
+                    <button class="movie-btn">Book Tickets</button>
+                </div>
+                <div class="movie-card liquid-card">
+                    <div class="movie-poster" style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.3) 0%, rgba(245, 87, 108, 0.3) 100%);">
+                        <span class="movie-badge">4DX</span>
+                    </div>
+                    <h3>Dark Horizon</h3>
+                    <p class="movie-genre">Thriller • Mystery</p>
+                    <button class="movie-btn">Book Tickets</button>
+                </div>
+                <div class="movie-card liquid-card">
+                    <div class="movie-poster" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.3) 0%, rgba(0, 242, 254, 0.3) 100%);">
+                        <span class="movie-badge">Dolby</span>
+                    </div>
+                    <h3>Ocean's Echo</h3>
+                    <p class="movie-genre">Adventure • Drama</p>
+                    <button class="movie-btn">Book Tickets</button>
+                </div>
+                <div class="movie-card liquid-card">
+                    <div class="movie-poster" style="background: linear-gradient(135deg, rgba(250, 112, 154, 0.3) 0%, rgba(254, 225, 64, 0.3) 100%);">
+                        <span class="movie-badge">Premium</span>
+                    </div>
+                    <h3>Sunset Boulevard</h3>
+                    <p class="movie-genre">Romance • Drama</p>
+                    <button class="movie-btn">Book Tickets</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="partners">
+    <div class="container">
+        <h2 class="section-title">Our Film Partners</h2>
+        <p class="section-subtitle">Collaborating with the world's leading production houses</p>
+
+        <div class="partners-grid">
+
+            <div class="partner-card liquid-card">
+                <div class="partner-logo">
+                    <img src="asset/images/ashirvad.png" alt="Studio Alpha">
+                </div>
+                <div class="partner-name">ASHIRVAD CINEMAS</div>
+            </div>
+
+            <div class="partner-card liquid-card">
+                <div class="partner-logo">
+                    <img src="asset/images/mammotty.png" alt="Mega Productions">
+                </div>
+                <div class="partner-name">MAMMOTTY KAMPANY</div>
+            </div>
+
+            <div class="partner-card liquid-card">
+                <div class="partner-logo">
+                    <img src="asset/images/gokulam.png" alt="Cinema Works">
+                </div>
+                <div class="partner-name">GOKULAM CINEMAS</div>
+            </div>
+
+            <div class="partner-card liquid-card">
+                <div class="partner-logo">
+                    <img src="asset/images/anwar.png" alt="Dream Studios">
+                </div>
+                <div class="partner-name">ANWAR RASHEED PRODUCTIONS</div>
+            </div>
+
+            <div class="partner-card liquid-card">
+                <div class="partner-logo">
+                    <img src="asset/images/amal.png" alt="Vision Films">
+                </div>
+                <div class="partner-name">AMAL NEERAD PRODUCTIONS</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Celebrity Reviews Section - GLASSMORPHISM -->
+<section class="celebrity-reviews">
+    <div class="container">
+        <h2 class="section-title">Loved By Cinema Icons</h2>
+        <p class="section-subtitle">Hear from the stars who've experienced Nilambur Films</p>
+        
+        <div class="reviews-grid">
+
+            <!-- Mohanlal -->
+            <div class="review-card liquid-card">
+                <div class="review-header">
+                    <div class="celebrity-photo">
+                        <span>ML</span>
+                    </div>
+                    <div class="celebrity-info">
+                        <h4>Mohanlal</h4>
+                        <p>Actor & Producer</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "Nilambur Films എന്നത് ഒരു complete cinematic experience ആണ്. 
+                    Qualityയും detailingഉം truly world-class."
+                </p>
+                <div class="review-date">October 2024</div>
+            </div>
+
+            <!-- Mammootty -->
+            <div class="review-card liquid-card">
+                <div class="review-header">
+                    <div class="celebrity-photo">
+                        <span>MM</span>
+                    </div>
+                    <div class="celebrity-info">
+                        <h4>Mammootty</h4>
+                        <p>Actor & Producer</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "IMAX projection ഇവിടെ simply outstanding ആണ്. 
+                    ഒരു true movie lover ക്ക് ഇതാണ് perfect theatre experience."
+                </p>
+                <div class="review-date">September 2024</div>
+            </div>
+
+            <!-- Kamal Haasan -->
+            <div class="review-card liquid-card">
+                <div class="review-header">
+                    <div class="celebrity-photo">
+                        <span>KH</span>
+                    </div>
+                    <div class="celebrity-info">
+                        <h4>Kamal Haasan</h4>
+                        <p>Actor & Filmmaker</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "Sound design, projection quality, ambience — 
+                    എല്ലാം കൂടി Nilambur Films ഒരു top-tier theatre experience നൽകുന്നു."
+                </p>
+                <div class="review-date">August 2024</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!-- Experience Tiers Section - GLASSMORPHISM -->
+    <section class="experience-tiers" id="experiences">
+        <div class="container">
+            <h2 class="section-title">Choose Your Experience</h2>
+            <p class="section-subtitle">Tailored viewing experiences for every preference</p>
+            
+            <div class="tiers-grid">
+                <div class="tier-card liquid-card">
+                    <div class="tier-badge">CLASSIC</div>
+                    <h3>Premium</h3>
+                    <div class="tier-price">$25</div>
+                    <ul class="tier-features">
+                        <li>✓ Standard Seating</li>
+                        <li>✓ Dolby Digital Sound</li>
+                        <li>✓ 4K Projection</li>
+                        <li>✓ Concession Discount</li>
+                    </ul>
+                    <button class="tier-btn">Select</button>
+                </div>
+
+                <div class="tier-card liquid-card featured-tier">
+                    <div class="tier-badge glow">MOST POPULAR</div>
+                    <h3>Deluxe</h3>
+                    <div class="tier-price">$45</div>
+                    <ul class="tier-features">
+                        <li>✓ Reclining Leather Seats</li>
+                        <li>✓ Dolby Atmos Sound</li>
+                        <li>✓ IMAX Screens</li>
+                        <li>✓ Premium Food Menu</li>
+                        <li>✓ Reserved Parking</li>
+                    </ul>
+                    <button class="tier-btn featured">Select</button>
+                </div>
+
+                <div class="tier-card liquid-card">
+                    <div class="tier-badge">ULTIMATE</div>
+                    <h3>VIP Suite</h3>
+                    <div class="tier-price">$85</div>
+                    <ul class="tier-features">
+                        <li>✓ Private Lounge Access</li>
+                        <li>✓ Butler Service</li>
+                        <li>✓ Premium Bar</li>
+                        <li>✓ Gourmet Dining</li>
+                        <li>✓ Pod Seating (2-4 people)</li>
+                        <li>✓ Dedicated Concierge</li>
+                    </ul>
+                    <button class="tier-btn">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section - GLASSMORPHISM -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content liquid-card">
+                <h2>Stay Updated</h2>
+                <p>Get exclusive offers, early access to tickets, and cinema news</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input">
+                    <button class="newsletter-btn">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - GLASSMORPHISM -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-pyramid small">
+                            <div class="pyramid-shape">
+                                <div class="pyramid-face front"></div>
+                                <div class="pyramid-face back"></div>
+                                <div class="pyramid-face left"></div>
+                                <div class="pyramid-face right"></div>
+                            </div>
+                        </div>
+                        <span>Nilambur Films</span>
+                    </div>
+                    <p>Experience cinema reimagined with cutting-edge technology and unmatched luxury.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#movies">Now Showing</a></li>
+                        <li><a href="#tickets">Book Tickets</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Experiences</h4>
+                    <ul>
+                        <li><a href="#imax">IMAX</a></li>
+                        <li><a href="#4dx">4DX</a></li>
+                        <li><a href="#dolby">Dolby Atmos</a></li>
+                        <li><a href="#vip">VIP Suites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#instagram">Instagram</a></li>
+                        <li><a href="#twitter">Twitter</a></li>
+                        <li><a href="#facebook">Facebook</a></li>
+                        <li><a href="#youtube">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nilambur Films. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="shared/mobile-menu.js"></script>
+</body>
+</html>

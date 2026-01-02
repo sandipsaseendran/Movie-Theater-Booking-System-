@@ -1,0 +1,1198 @@
+/* ========================================
+   BOOKING PAGE - PREMIUM LIQUID GLASSMORPHISM
+   Matching Home Page Design
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a12;
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Atmospheric Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920') center/cover no-repeat;
+    filter: brightness(0.25) saturate(0.8);
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 20% 20%, rgba(138, 80, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(79, 172, 254, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 40%, rgba(255, 107, 107, 0.1) 0%, transparent 40%),
+        linear-gradient(180deg, rgba(10, 10, 18, 0.7) 0%, rgba(10, 10, 18, 0.95) 100%);
+    z-index: -1;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(10, 10, 18, 0.6);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-pyramid {
+    width: 50px;
+    height: 50px;
+    perspective: 100px;
+}
+
+.pyramid-shape {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotatePyramid 8s infinite linear;
+}
+
+.pyramid-face {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 43px solid rgba(138, 80, 255, 0.85);
+    filter: drop-shadow(0 0 15px rgba(138, 80, 255, 0.5));
+}
+
+.pyramid-face.front { transform: rotateX(-30deg) translateZ(14px); }
+.pyramid-face.back { transform: rotateX(-30deg) rotateY(180deg) translateZ(14px); }
+.pyramid-face.left { transform: rotateX(-30deg) rotateY(-90deg) translateZ(14px); }
+.pyramid-face.right { transform: rotateX(-30deg) rotateY(90deg) translateZ(14px); }
+
+@keyframes rotatePyramid {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #8a50ff 0%, #ff6b6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glass-btn {
+    padding: 12px 28px;
+    background: rgba(138, 80, 255, 0.15);
+    border: 1px solid rgba(138, 80, 255, 0.3);
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.glass-btn:hover {
+    background: rgba(138, 80, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(138, 80, 255, 0.3);
+}
+
+/* ========================================
+   LIQUID GLASS CARD
+   ======================================== */
+.liquid-card {
+    background: linear-gradient(165deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(255, 255, 255, 0.02) 50%,
+        rgba(138, 80, 255, 0.03) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.liquid-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.liquid-card:hover {
+    border-color: rgba(138, 80, 255, 0.3);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        0 0 80px rgba(138, 80, 255, 0.1);
+}
+
+/* ========================================
+   BOOKING CONTAINER
+   ======================================== */
+.booking-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 110px 30px 50px;
+    position: relative;
+}
+
+.booking-step {
+    display: none;
+    animation: fadeSlide 0.5s ease;
+}
+
+.booking-step.active {
+    display: block;
+}
+
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   STEP 1: MOVIE INFO & SELECTION
+   ======================================== */
+.movie-info-card {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 35px;
+}
+
+.movie-poster {
+    width: 160px;
+    height: 240px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(138, 80, 255, 0.3), rgba(106, 48, 221, 0.3));
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.movie-details h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, #8a50ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.movie-meta {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.movie-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffd700;
+    font-weight: 600;
+}
+
+/* Screen Selection */
+.screen-selection, .showtime-selection, .seats-info {
+    margin-bottom: 30px;
+}
+
+.screen-selection h2, .showtime-selection h2, .seats-info h2 {
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.screens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.screen-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.screen-card:hover {
+    border-color: rgba(138, 80, 255, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(138, 80, 255, 0.15);
+}
+
+.screen-card.selected {
+    border-color: #8a50ff;
+    background: rgba(138, 80, 255, 0.15);
+    box-shadow: 0 0 40px rgba(138, 80, 255, 0.25);
+}
+
+.screen-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.screen-card .screen-type {
+    display: inline-block;
+    padding: 5px 15px;
+    background: linear-gradient(135deg, #8a50ff, #6a30dd);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.screen-card .screen-seats {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+.screen-card .screen-price {
+    color: #4caf50;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* No Shows Message */
+.no-shows-message {
+    text-align: center;
+    padding: 60px 40px;
+}
+
+.no-shows-message p {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.no-shows-message .hint {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* Date & Time Selection */
+.dates-container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.date-btn {
+    min-width: 85px;
+    padding: 18px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.date-btn:hover {
+    border-color: rgba(138, 80, 255, 0.4);
+}
+
+.date-btn.selected {
+    background: linear-gradient(135deg, #8a50ff, #6a30dd);
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba(138, 80, 255, 0.4);
+}
+
+.date-btn .day {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-bottom: 3px;
+}
+
+.date-btn .date {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.date-btn .month {
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+.times-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.time-btn {
+    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.time-btn:hover {
+    border-color: rgba(138, 80, 255, 0.4);
+}
+
+.time-btn.active {
+    background: linear-gradient(135deg, #8a50ff, #6a30dd);
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba(138, 80, 255, 0.4);
+}
+
+.time-btn .price-hint {
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+.no-dates, .no-times {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    padding: 20px;
+}
+
+/* Seats Counter */
+.seats-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin: 25px 0;
+}
+
+.counter-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: rgba(138, 80, 255, 0.15);
+    border: 2px solid rgba(138, 80, 255, 0.4);
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.counter-btn:hover {
+    background: rgba(138, 80, 255, 0.35);
+    transform: scale(1.1);
+}
+
+.seats-count {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #8a50ff;
+    text-shadow: 0 0 30px rgba(138, 80, 255, 0.5);
+}
+
+.seats-hint {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+}
+
+.proceed-btn {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.15rem;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #8a50ff 0%, #6a30dd 100%);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 15px 40px rgba(138, 80, 255, 0.35);
+    transition: all 0.4s ease;
+}
+
+.proceed-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(138, 80, 255, 0.5);
+}
+
+.proceed-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ========================================
+   STEP 2: SEAT SELECTION
+   ======================================== */
+.seat-selection-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding: 25px;
+}
+
+.back-step-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.back-step-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.selection-info h2 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.selection-info p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.screen-display {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.screen-curve {
+    width: 85%;
+    max-width: 550px;
+    height: 50px;
+    margin: 0 auto;
+    background: linear-gradient(to top, rgba(138, 80, 255, 0.4), transparent);
+    border-radius: 50% 50% 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8px;
+    font-size: 0.9rem;
+    letter-spacing: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 50px rgba(138, 80, 255, 0.3);
+}
+
+.seat-layout-container {
+    margin-bottom: 30px;
+    overflow-x: auto;
+}
+
+.seat-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: fit-content;
+    padding: 25px;
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.row-label {
+    width: 35px;
+    text-align: center;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+}
+
+.seat {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px 10px 4px 4px;
+    background: rgba(76, 175, 80, 0.25);
+    border: 2px solid rgba(76, 175, 80, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.seat:hover:not(.booked) {
+    transform: scale(1.15);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+}
+
+.seat.selected {
+    background: linear-gradient(135deg, #8a50ff, #6a30dd);
+    border-color: #8a50ff;
+    box-shadow: 0 0 25px rgba(138, 80, 255, 0.6);
+    color: #fff;
+}
+
+.seat.booked {
+    background: rgba(255, 71, 87, 0.35) !important;
+    border-color: rgba(255, 71, 87, 0.6) !important;
+    cursor: not-allowed !important;
+    opacity: 0.7;
+    position: relative;
+}
+
+.seat.booked::after {
+    content: '✕';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.9rem;
+    color: rgba(255, 71, 87, 1);
+    font-weight: bold;
+}
+
+.seat.booked:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.seat.premium {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+.seat.premium.selected {
+    background: linear-gradient(135deg, #ffd700, #ffb700);
+    border-color: #ffd700;
+    color: #000;
+}
+
+.seat.locked {
+    background: rgba(255, 152, 0, 0.25);
+    border-color: rgba(255, 152, 0, 0.4);
+    cursor: not-allowed;
+    position: relative;
+}
+
+.seat.locked::after {
+    content: '🔒';
+    position: absolute;
+    font-size: 0.7rem;
+    top: -8px;
+    right: -8px;
+}
+
+.aisle {
+    width: 25px;
+}
+
+/* Seat Legend */
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.seat-demo {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px 6px 2px 2px;
+}
+
+.seat-demo.available {
+    background: rgba(76, 175, 80, 0.25);
+    border: 2px solid rgba(76, 175, 80, 0.4);
+}
+
+.seat-demo.selected {
+    background: linear-gradient(135deg, #8a50ff, #6a30dd);
+    border: 2px solid #8a50ff;
+}
+
+.seat-demo.booked {
+    background: rgba(255, 71, 87, 0.25);
+    border: 2px solid rgba(255, 71, 87, 0.4);
+}
+
+.seat-demo.premium {
+    background: rgba(255, 215, 0, 0.2);
+    border: 2px solid rgba(255, 215, 0, 0.4);
+}
+
+/* Selection Summary */
+.selection-summary {
+    margin-bottom: 25px;
+    padding: 25px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.summary-row.total {
+    border-bottom: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4caf50;
+    padding-top: 18px;
+    margin-top: 10px;
+    border-top: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   STEP 3: PAYMENT
+   ======================================== */
+.payment-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding: 25px;
+}
+
+.payment-header h2 {
+    font-size: 1.5rem;
+}
+
+.booking-summary {
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+.booking-summary h3 {
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.2rem;
+}
+
+.summary-details {
+    margin-bottom: 30px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.summary-item .label {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.summary-item .value {
+    font-weight: 600;
+}
+
+.price-breakdown {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.price-row.gst {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.price-row.total {
+    border-top: 2px solid rgba(138, 80, 255, 0.25);
+    margin-top: 12px;
+    padding-top: 18px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4caf50;
+}
+
+.payment-methods {
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+.payment-methods h3 {
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+}
+
+.methods-grid {
+    display: flex;
+    gap: 18px;
+}
+
+.method-btn {
+    flex: 1;
+    padding: 22px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.method-btn img {
+    width: 28px;
+    height: 28px;
+}
+
+.method-btn.active {
+    border-color: #8a50ff;
+    background: rgba(138, 80, 255, 0.15);
+    box-shadow: 0 0 30px rgba(138, 80, 255, 0.2);
+}
+
+.pay-btn {
+    width: 100%;
+    padding: 22px;
+    font-size: 1.25rem;
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 15px 40px rgba(76, 175, 80, 0.35);
+    transition: all 0.4s ease;
+}
+
+.pay-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(76, 175, 80, 0.5);
+}
+
+.pay-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.secure-text {
+    text-align: center;
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   STEP 4: CONFIRMATION
+   ======================================== */
+.confirmation-card {
+    text-align: center;
+    padding: 50px;
+}
+
+.success-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #4caf50, #45a049);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 0 auto 30px;
+    animation: successPop 0.6s ease;
+    box-shadow: 0 15px 50px rgba(76, 175, 80, 0.4);
+}
+
+@keyframes successPop {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.confirmation-card h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #4caf50, #8a50ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.booking-id-display {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+}
+
+.booking-id-display strong {
+    color: #8a50ff;
+    font-size: 1.3rem;
+}
+
+.ticket-preview {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 35px;
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 18px;
+    background: #fff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.qr-code img {
+    width: 180px;
+    height: 180px;
+}
+
+.qr-hint {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.confirmation-details {
+    text-align: left;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.detail-row {
+    display: flex;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.email-notice {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+.confirmation-actions {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 16px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.action-btn.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.action-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE FIRST
+   ======================================== */
+
+/* Mobile Devices (up to 576px) */
+@media (max-width: 576px) {
+    .glass-nav {
+        padding: 0.8rem 1rem;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .booking-container {
+        padding: 80px 10px 30px;
+    }
+    
+    .movie-info-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .movie-poster {
+        width: 120px;
+        height: 180px;
+    }
+    
+    .movie-details h1 {
+        font-size: 1.5rem;
+    }
+    
+    .screens-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .screen-card {
+        padding: 18px;
+    }
+    
+    .dates-container {
+        gap: 8px;
+    }
+    
+    .date-btn {
+        min-width: 70px;
+        padding: 12px 8px;
+        font-size: 0.9rem;
+    }
+    
+    .date-btn .date {
+        font-size: 1.2rem;
+    }
+    
+    .times-container {
+        gap: 8px;
+    }
+    
+    .time-btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+    
+    .seat {
+        width: 26px;
+        height: 26px;
+        font-size: 0.6rem;
+    }
+    
+    .seat-layout-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px 5px;
+    }
+    
+    .seat-layout {
+        padding: 15px;
+        gap: 8px;
+    }
+    
+    .row-label {
+        width: 25px;
+        font-size: 0.75rem;
+    }
+    
+    .aisle {
+        width: 15px;
+    }
+    
+    .seat-legend {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+    
+    .seat-demo {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .selection-summary,
+    .booking-summary,
+    .payment-methods {
+        padding: 20px;
+    }
+    
+    .confirmation-card {
+        padding: 30px 20px;
+    }
+    
+    .confirmation-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .action-btn {
+        width: 100%;
+        padding: 14px;
+    }
+    
+    .proceed-btn,
+    .pay-btn {
+        padding: 16px;
+        font-size: 1rem;
+    }
+    
+    .seats-counter {
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .counter-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .seats-count {
+        font-size: 2.5rem;
+    }
+    
+    .qr-code {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .qr-code img {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+/* Tablets (577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .glass-nav {
+        padding: 1rem 2rem;
+    }
+    
+    .booking-container {
+        padding: 100px 20px 40px;
+    }
+    
+    .movie-info-card {
+        flex-direction: row;
+        padding: 25px;
+    }
+    
+    .screens-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .seat {
+        width: 32px;
+        height: 32px;
+        font-size: 0.7rem;
+    }
+    
+    .seat-layout-container {
+        overflow-x: auto;
+    }
+    
+    .confirmation-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* Desktop (769px and above) - already styled */
+@media (min-width: 769px) {
+    .booking-container {
+        padding: 110px 30px 50px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .seat:hover:not(.booked):not(.locked) {
+        transform: none;
+    }
+    
+    .seat:active:not(.booked):not(.locked) {
+        transform: scale(1.1);
+    }
+    
+    .counter-btn,
+    .date-btn,
+    .time-btn,
+    .screen-card {
+        -webkit-tap-highlight-color: rgba(138, 80, 255, 0.3);
+    }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>Login - Nilambur Films</title>
+    <link rel="stylesheet" href="login.css?v=5">
+</head>
+<body>
+    <a href="../index.html" class="back-btn">← Back to Home</a>
+    
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <div class="main-container">
+        
+        <!-- LOGIN CARD -->
+        <div class="card" id="loginCard">
+            <div class="card-header">
+                <div class="logo">🎬</div>
+                <h1>Welcome Back</h1>
+                <p>Sign in to your account</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+            
+            <div class="card-footer">
+                <p>Don't have an account? <a href="#" id="goToRegister">Create Account</a></p>
+            </div>
+        </div>
+
+        <!-- REGISTER CARD -->
+        <div class="card hidden" id="registerCard">
+            <div class="card-header">
+                <div class="logo">🎬</div>
+                <h1>Create Account</h1>
+                <p>Join Nilambur Films</p>
+            </div>
+            
+            <form id="registerForm">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="regName" placeholder="Enter your name" required>
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label>Phone</label>
+                    <input type="tel" id="regPhone" placeholder="Enter your phone" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="regPassword" placeholder="Create password" required>
+                </div>
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" placeholder="Confirm password" required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreeTerms">
+                    <label for="agreeTerms">I agree to Terms & Conditions</label>
+                </div>
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+            
+            <div class="card-footer">
+                <p>Already have an account? <a href="#" id="goToLogin">Sign In</a></p>
+            </div>
+        </div>
+
+        <!-- OTP VERIFICATION CARD -->
+        <div class="card hidden" id="otpCard">
+            <div class="card-header">
+                <div class="logo">📧</div>
+                <h1>Verify Your Email</h1>
+                <p>We sent a 6-digit code to</p>
+                <span class="email-highlight" id="displayEmail">your@email.com</span>
+            </div>
+            
+            <form id="otpForm">
+                <div class="otp-inputs">
+                    <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+                    <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+                    <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+                    <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+                    <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+                    <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+                </div>
+                
+                <div class="timer-section">
+                    <p id="timerText">Resend code in <span id="timer">60</span>s</p>
+                    <button type="button" id="resendBtn" class="resend-btn" style="display:none;">Resend Code</button>
+                </div>
+                
+                <button type="submit" class="btn-primary">Verify & Continue</button>
+                <button type="button" class="btn-secondary" id="backBtn">← Back</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <script src="login.js?v=5"></script>
+</body>
+</html>

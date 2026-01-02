@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#8a50ff">
+    <title>Book Tickets - Nilambur Films</title>
+    <link rel="stylesheet" href="booking.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-logo">
+            <div class="logo-pyramid">
+                <div class="pyramid-shape">
+                    <div class="pyramid-face front"></div>
+                    <div class="pyramid-face back"></div>
+                    <div class="pyramid-face left"></div>
+                    <div class="pyramid-face right"></div>
+                </div>
+            </div>
+            <span class="logo-text">Nilambur Films</span>
+        </div>
+        <a href="../index.html" class="glass-btn">← Back to Home</a>
+    </nav>
+
+    <!-- Main Booking Container -->
+    <div class="booking-container">
+        
+        <!-- Step 1: Movie Info & Screen Selection -->
+        <section class="booking-step step-1 active" id="step1">
+            <div class="movie-info-card liquid-card">
+                <div class="movie-poster" id="moviePoster"></div>
+                <div class="movie-details">
+                    <h1 id="movieTitle">Loading...</h1>
+                    <p class="movie-meta" id="movieMeta"></p>
+                    <div class="movie-rating" id="movieRating"></div>
+                </div>
+            </div>
+
+            <div class="screen-selection liquid-card">
+                <h2>🎬 Select Screen</h2>
+                <div class="screens-grid" id="screensGrid">
+                    <!-- Screens will be loaded here -->
+                </div>
+            </div>
+
+            <div class="showtime-selection liquid-card">
+                <h2>🕐 Select Date & Time</h2>
+                <div class="date-picker">
+                    <div class="dates-container" id="datesContainer">
+                        <!-- Dates will be generated here -->
+                    </div>
+                </div>
+                <div class="times-container" id="timesContainer">
+                    <!-- Times will be loaded here -->
+                </div>
+            </div>
+
+            <div class="seats-info liquid-card">
+                <h2>💺 How many seats?</h2>
+                <div class="seats-counter">
+                    <button class="counter-btn" id="decreaseSeats">−</button>
+                    <span class="seats-count" id="seatsCount">2</span>
+                    <button class="counter-btn" id="increaseSeats">+</button>
+                </div>
+                <p class="seats-hint">Select 1-10 seats</p>
+            </div>
+
+            <button class="proceed-btn glass-btn" id="proceedToSeats">Select Seats →</button>
+        </section>
+
+        <!-- Step 2: Seat Selection -->
+        <section class="booking-step step-2" id="step2">
+            <div class="seat-selection-header liquid-card">
+                <button class="back-step-btn" id="backToStep1">← Back</button>
+                <div class="selection-info">
+                    <h2 id="selectedScreenName">Screen 1</h2>
+                    <p id="selectedDateTime">Today, 7:30 PM</p>
+                </div>
+            </div>
+
+            <div class="screen-display">
+                <div class="screen-curve">
+                    <span>SCREEN</span>
+                </div>
+            </div>
+
+            <div class="seat-layout-container liquid-card">
+                <div class="seat-layout" id="seatLayout">
+                    <!-- Seats will be generated here -->
+                </div>
+            </div>
+
+            <div class="seat-legend">
+                <div class="legend-item">
+                    <div class="seat-demo available"></div>
+                    <span>Available</span>
+                </div>
+                <div class="legend-item">
+                    <div class="seat-demo selected"></div>
+                    <span>Selected</span>
+                </div>
+                <div class="legend-item">
+                    <div class="seat-demo booked"></div>
+                    <span>Booked</span>
+                </div>
+                <div class="legend-item">
+                    <div class="seat-demo premium"></div>
+                    <span>Premium</span>
+                </div>
+            </div>
+
+            <div class="selection-summary liquid-card">
+                <div class="summary-row">
+                    <span>Selected Seats:</span>
+                    <span id="selectedSeatsList">None</span>
+                </div>
+                <div class="summary-row">
+                    <span>Price per seat:</span>
+                    <span id="pricePerSeat">₹0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">₹0</span>
+                </div>
+            </div>
+
+            <button class="proceed-btn glass-btn" id="proceedToPayment" disabled>Proceed to Payment →</button>
+        </section>
+
+        <!-- Step 3: Payment -->
+        <section class="booking-step step-3" id="step3">
+            <div class="payment-header liquid-card">
+                <button class="back-step-btn" id="backToStep2">← Back</button>
+                <h2>💳 Payment Details</h2>
+            </div>
+
+            <div class="booking-summary liquid-card">
+                <h3>Booking Summary</h3>
+                <div class="summary-details">
+                    <div class="summary-item">
+                        <span class="label">Movie</span>
+                        <span class="value" id="summaryMovie">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Screen</span>
+                        <span class="value" id="summaryScreen">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Date & Time</span>
+                        <span class="value" id="summaryDateTime">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Seats</span>
+                        <span class="value" id="summarySeats">-</span>
+                    </div>
+                </div>
+
+                <div class="price-breakdown">
+                    <div class="price-row">
+                        <span>Ticket Price</span>
+                        <span id="paymentSubtotal">₹0</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Convenience Fee</span>
+                        <span>₹0</span>
+                    </div>
+                    <div class="price-row gst">
+                        <span>GST (18%)</span>
+                        <span id="paymentGST">₹0</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Total Amount</span>
+                        <span id="paymentTotal">₹0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-methods liquid-card">
+                <h3>Payment Method</h3>
+                <div class="methods-grid">
+                    <button class="method-btn active" data-method="razorpay">
+                        <img src="https://razorpay.com/favicon.png" alt="Razorpay">
+                        <span>Razorpay</span>
+                    </button>
+                </div>
+            </div>
+
+            <button class="pay-btn glass-btn" id="payNowBtn">
+                <span class="btn-text">Pay Now</span>
+                <span class="btn-loader" style="display: none;">Processing...</span>
+            </button>
+
+            <p class="secure-text">🔒 Secure payment powered by Razorpay</p>
+        </section>
+
+        <!-- Step 4: Confirmation -->
+        <section class="booking-step step-4" id="step4">
+            <div class="confirmation-card liquid-card">
+                <div class="success-icon">✓</div>
+                <h1>Booking Confirmed!</h1>
+                <p class="booking-id-display">Booking ID: <strong id="finalBookingId">-</strong></p>
+                
+                <div class="ticket-preview">
+                    <div class="qr-code" id="qrCodeContainer">
+                        <!-- QR Code will be inserted here -->
+                    </div>
+                    <p class="qr-hint">Show this QR code at the entrance</p>
+                </div>
+
+                <div class="confirmation-details">
+                    <div class="detail-row">
+                        <span>🎬</span>
+                        <span id="confirmMovie">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>📍</span>
+                        <span id="confirmScreen">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>📅</span>
+                        <span id="confirmDateTime">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>💺</span>
+                        <span id="confirmSeats">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>💰</span>
+                        <span id="confirmAmount">-</span>
+                    </div>
+                </div>
+
+                <p class="email-notice">📧 A confirmation email has been sent to your registered email address</p>
+
+                <div class="confirmation-actions">
+                    <a href="../ticket/ticket.html" class="action-btn glass-btn">View My Tickets</a>
+                    <a href="../index.html" class="action-btn secondary">Back to Home</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="booking.js?v=3"></script>
+</body>
+</html>
